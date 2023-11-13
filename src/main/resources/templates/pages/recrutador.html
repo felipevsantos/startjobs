@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title> StartJobs </title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">StartJobs </a>
+            <a href="/">Home</a>
+            <a href="/vagas">Vagas</a>
+            <a href="/recrutador">Recrutador</a>
+        </div>
+    </nav>
+    <!-- Masthead-->
+
+    <header class="masthead">
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-xl-6">
+                    <div class="text-center text-white">
+                        <!-- Page heading-->
+                        <h1 class="mb-5">Cadastre as vagas </h1>
+                        <!-- to get an API token!-->
+                        <form class="form-subscribe" method="post">
+                            <!-- Email address input-->
+                            <div class="row">
+                                <div class="col">
+                                    <label class="col form-label">Título</label>
+                                    <input class="form-control form-control" name="titulo" type="text" />
+                                </div>
+                            </div>
+
+                            <br>
+                            <!-- Submit success message-->
+                            <div class="row">
+                                <div class="col">
+                                    <label class="col form-label">Descrição</label>
+                                    <input class="form-control form-control" name="descricao" type="text" />
+                                </div>
+                            </div>
+
+                            <br>
+                            <!-- Submit success message-->
+                            <div class="row">
+                                <div class="col">
+                                    <label class="col form-label">Escolha o tipo</label>
+                                    <select id="tipo" name="tipo" required class="form-select" aria-label="Default select example">
+                                        <option selected value=""> Escolha o tipo da vaga </option>
+                                        <option th:each="tipo: ${T(com.startjobsdev.model.Tipo).values()}"
+                                                th:value="${tipo}"
+                                                 th:text="${tipo}"></option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <br>
+                            <!-- Submit success message-->
+                            <div class="row ">
+                                <div class="col">
+                                    <label class="form-label">Data de encerramento</label>
+                                    <input type="date" name="data" class="form-control">
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <br>
+
+                            <div class="row ">
+                                <div class="col ">
+                                    <button type="submit" class="btn btn-lg btn-primary">
+                                Cadastrar Vaga
+                            </button>
+                                </div>
+                            </div>
+
+                            <!-- has successfully submitted-->
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Icons Grid-->
+
+    <footer class="footer bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                    <ul class="list-inline mb-2">
+                        <li class="list-inline-item"><a href="/">Home</a></li>
+                        <li class="list-inline-item">⋅</li>
+                        <li class="list-inline-item"><a href="/vagas">Vagas</a></li>
+                        <li class="list-inline-item">⋅</li>
+                        <li class="list-inline-item"><a href="/recrutador">Recrutador</a></li>
+                    </ul>
+                    <p class="text-muted small mb-4 mb-lg-0">&copy; StartJobs. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js "></script>
+    <script src="/js/scripts.js "></script>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js "></script>
+</body>
+
+</html>
